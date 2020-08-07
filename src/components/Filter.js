@@ -3,7 +3,16 @@ import React from 'react';
 //El filter consiste en poder buscar los personajes por nombre, hay que tener en cuenta si las letras están en mayúscula / minúscula para la búsqueda.
 
 class Filter extends React.Component{
-  //tenemos que colocar el handler en el onchage, bindearlo y hacerle evento
+  //tenemos que crear el constructor donde va el handler del onchage y bindearlo.
+  constructor(props) {
+    super(props);
+    this.handleFilterText = this.handleFilterText.bind(this);
+  }
+  //creamos el evento del cambio
+  handleFilterText(ev){
+    this.props.changeText(ev.currentTarget.value);
+  }
+
   render(){
     return(
       <form>
@@ -14,7 +23,7 @@ class Filter extends React.Component{
          type='text' className='name' 
          placeholder= 'personaje'
          id='name' 
-        //  onChange={} 
+         onChange={this.handleFilterText} 
         />
       </form>
     );

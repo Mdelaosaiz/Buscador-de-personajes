@@ -3,23 +3,25 @@ import Character from './Character';
 
 // Vamos a crear el listado de todos los personajes qeu nos llegan desde la Api. 
 class CharacterList extends React.Component {
-  
+
 // tenemos que recorrer el array con un map, para que pinte todos los personajes.
 
  render(){
-  // return (
-  //   <Character
-  //   key= {item.Character.id}
-  //   image={item.Character.image}
-  //   name={item.Character.name}
-  //   species={item.Character.species}
-  //   />
-  //   );
-
+   console.log(this.props.characterArray);
+   let characters = this.props.characterArray.map( item => {
+     
+     return (
+       <Character
+         key= {item.id}
+         image={item.image}
+         name={item.name}
+         species={item.species}
+       />
+     );
+    });
  
    return(
-     <ul className="characterList">
-     </ul>
+     <ul className="characterList">{characters}</ul>
     );
   }
 }

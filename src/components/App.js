@@ -3,18 +3,46 @@ import '../App.css';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import Filter from './Filter';
+//api desde donde conseguimos la lista de personajes
 
-const App = () =>{
-  //tenemos que hacer una lista vacía de los personajes.
-  //tenemos que cambiar el estado con los handles qeu nos llegan desde el filter.
-  //hay que hacer el fetch.
-  return (
-    <div className="App">
-      <Filter></Filter>
-      <CharacterList></CharacterList>
-      <CharacterDetail></CharacterDetail>
-    </div>
-  );
+const listCharacters = 'https://rickandmortyapi.com/api/character/?';
+class App extends React.Component{
+  constructor (props){
+   super(props);
+   this.state ={
+   //Aquí colocamos todo lo que queremos guardar vacío.
+      characters: [],
+      FilterText: ''
+    } 
+    //bindeamos los handlers que se van creando.
+    this.handleFilterText = this.handleFilterText.bind(this);
+  }
+  
+   //hay que hacer el fetch.
+  FetchCharacter(){
+    
+    fetch(listCharacters + 'name=' + this.state.FilterText)
+      .then((response) => response.json())
+      .then(data =>{
+        this.setState({characters : data.results});
+      });
+  }      
+
+   //tenemos que cambiar el estado con los handlers que nos llegan desde el filter.
+   handleFilterText(text){
+    console.log(text);
+    this.setState({FilterText:text});
+    this.FetchCharacter();
+  }
+  render(){
+   return (
+      <div className="App">
+       <Filter changeText={this.handleFilterText}></Filter>
+       <CharacterList characterArray ={this.state.characters}></CharacterList>
+       <CharacterDetail></CharacterDetail>
+      </div>
+    );
+  }
 }
 
 export default App;
