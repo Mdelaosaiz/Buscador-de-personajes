@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import '../App.css';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
@@ -16,6 +17,7 @@ class App extends React.Component{
     } 
     //bindeamos los handlers que se van creando.
     this.handleFilterText = this.handleFilterText.bind(this);
+    this.characterDetail =this.characterDetail.bind(this);
   }
   
    //hay que hacer el fetch.
@@ -34,15 +36,24 @@ class App extends React.Component{
     this.setState({FilterText:text});
     this.FetchCharacter();
   }
+  characterDetail (props){
+    
+  }
   render(){
    return (
       <div className="App">
-       <Filter changeText={this.handleFilterText}></Filter>
-       <CharacterList characterArray ={this.state.characters}></CharacterList>
-       <CharacterDetail></CharacterDetail>
+       <Switch>
+         <Route exact path='/'>
+           <Filter changeText={this.handleFilterText}></Filter>
+           <CharacterList characterArray ={this.state.characters}></CharacterList>
+         </Route>
+         <Route path='/character/:id' render={this.characterDetail}/>
+       </Switch>
       </div>
     );
   }
 }
 
 export default App;
+
+

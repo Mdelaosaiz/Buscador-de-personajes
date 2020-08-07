@@ -7,17 +7,22 @@ class Filter extends React.Component{
   constructor(props) {
     super(props);
     this.handleFilterText = this.handleFilterText.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   //creamos el evento del cambio
   handleFilterText(ev){
     this.props.changeText(ev.currentTarget.value);
   }
 
+  handleSubmit(ev){
+     ev.preventDefault();
+  }
+
   render(){
     return(
-      <form>
+      <form onSubmit= {this.handleSubmit}>
         <label className='label' htmlFor='name'>
-            Busca un personaje:
+          Busca un personaje:
         </label>
         <input 
          type='text' className='name' 
