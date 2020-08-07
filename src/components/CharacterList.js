@@ -9,15 +9,15 @@ class CharacterList extends React.Component {
  render(){
    console.log(this.props.characterArray);
    let characters = this.props.characterArray.map( item => {
-     
-     return (
+      return (
        <Character
          key= {item.id}
+         id= {item.id}
          image={item.image}
          name={item.name}
          species={item.species}
        />
-     );
+      );
     });
  
    return(

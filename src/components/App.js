@@ -17,7 +17,7 @@ class App extends React.Component{
     } 
     //bindeamos los handlers que se van creando.
     this.handleFilterText = this.handleFilterText.bind(this);
-    this.characterDetail =this.characterDetail.bind(this);
+    this.renderCharacterDetail =this.renderCharacterDetail.bind(this);
   }
   
    //hay que hacer el fetch.
@@ -36,19 +36,32 @@ class App extends React.Component{
     this.setState({FilterText:text});
     this.FetchCharacter();
   }
-  characterDetail (props){
-    
+
+
+  renderCharacterDetail (props){
+    // busco si el id está en el objeto del estado.
+    let key = props.match.params.id;
+    console.log("key" + key);
+    let charSelected = this.state.characters.find((item) => {
+       return item.id === parseInt(key);
+      });
+    if(charSelected === undefined){
+      //si no está, hago un fetch de getcharacter si está, lo pinto si no está le pongo el <p> con la frase.
+      return <p className ="error">Este personaje es de una realidad paralela encriptada</p>
+    }else {//TODO
+      //si está pinto el objeto 
+      return (<CharacterDetail image="" name="" species="" origin="" episode="" status=""></CharacterDetail>)
+    }
+
   }
   render(){
    return (
       <div className="App">
-       <Switch>
-         <Route exact path='/'>
-           <Filter changeText={this.handleFilterText}></Filter>
-           <CharacterList characterArray ={this.state.characters}></CharacterList>
-         </Route>
-         <Route path='/character/:id' render={this.characterDetail}/>
-       </Switch>
+        <Filter changeText={this.handleFilterText}></Filter>
+        <CharacterList characterArray ={this.state.characters}></CharacterList>
+        <Switch>
+         <Route exact path='/character/:id' render={this.renderCharacterDetail}/>
+        </Switch>
       </div>
     );
   }
@@ -57,3 +70,4 @@ class App extends React.Component{
 export default App;
 
 
+//TODO hacer un localStore para dejar guardada la búsqueda.

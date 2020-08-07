@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 class CharacterDetail extends React.Component{
  render(){
+  
    return(
     <>
       <div className="" > 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-//El filter consiste en poder buscar los personajes por nombre, hay que tener en cuenta si las letras están en mayúscula / minúscula para la búsqueda.
+//TODO hay que tener en cuenta si las letras están en mayúscula / minúscula para la búsqueda.
 
 class Filter extends React.Component{
   //tenemos que crear el constructor donde va el handler del onchage y bindearlo.
