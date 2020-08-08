@@ -12,7 +12,7 @@ class Filter extends React.Component{
   }
   //creamos el evento del cambio
   handleFilterText(ev){
-    this.props.changeText(ev.currentTarget.value);
+    this.props.changeText(ev.currentTarget.value.toLowerCase());
   }
 
   handleSubmit(ev){

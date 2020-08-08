@@ -43,11 +43,12 @@ class App extends React.Component{
     // busco si el id está en el objeto del estado.
     let key = props.match.params.id;
     console.log("key" + key);
-    let charSelected = this.state.characters.find((item) => {
+    let charSelected = this.state.characters.find(
+      (item) => {
        return item.id === parseInt(key);
        });
         if(charSelected === undefined){
-         //Si no está le pongo el <p> con la frase.
+         //Si no está le pongo el <p> con la frase. TODO
          return (<> </>)
         }else {
        //Si está pinto el objeto 

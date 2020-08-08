@@ -4,9 +4,6 @@ import '../stylesheets/layout/_charlist.scss';
 
 // Vamos a crear el listado de todos los personajes qeu nos llegan desde la Api. 
 class CharacterList extends React.Component {
-
-// tenemos que recorrer el array con un map, para que pinte todos los personajes.
-
  render(){
    console.log(this.props.characterArray);
    let characters = this.props.characterArray.sort(function(a, b){
