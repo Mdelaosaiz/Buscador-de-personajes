@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../stylesheets/layout/App.scss';
+import Header from './Header';
 import Landing from './Landing';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
@@ -68,6 +69,7 @@ class App extends React.Component{
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/character">
+          <Header />
            <Filter changeText={this.handleFilterText}></Filter>
            <CharacterList characterArray ={this.state.characters}></CharacterList>
            <Switch>
