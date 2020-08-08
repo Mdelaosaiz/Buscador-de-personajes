@@ -1,7 +1,9 @@
 .App{
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-image: url("../../images/nebulosa3.jpg");
+  overflow: scroll;
   background-size: cover;
   background-position: unset;
+  background-repeat: no-repeat;
 }

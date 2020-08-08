@@ -60,14 +60,29 @@ class App extends React.Component{
   render(){
    return (
       <div className="App">
-        <Switch>
+        {/* <Switch>
           <Route exact path="/" component={Landing} />
         </Switch>  
         <Filter changeText={this.handleFilterText}></Filter>
         <CharacterList characterArray ={this.state.characters}></CharacterList>
         <Switch>
           <Route exact path='/character/:id' render={this.renderCharacterDetail}/>
+        </Switch> */}
+                <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route path="/character">
+          <Filter changeText={this.handleFilterText}></Filter>
+        <CharacterList characterArray ={this.state.characters}></CharacterList>
+        <Switch>
+          <Route exact path='/character/:id' render={this.renderCharacterDetail}/>
         </Switch>
+          </Route>
+        </Switch>  
+        {/* <Filter changeText={this.handleFilterText}></Filter>
+        <CharacterList characterArray ={this.state.characters}></CharacterList>
+        <Switch>
+          <Route exact path='/character/:id' render={this.renderCharacterDetail}/>
+        </Switch> */}
       </div>
     );
   }
