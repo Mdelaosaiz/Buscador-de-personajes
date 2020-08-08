@@ -1,0 +1,20 @@
+.form-wrapper{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .label{
+    margin:15px;
+    font-size: 30px;
+    color:lightgreen;
+  }
+  
+  .name{
+    height: 30px;
+    width: 150px;
+    background-color:rgba(173, 216, 230, 0.562);
+    border-radius: 10px;
+    color: Black;
+  }
+}

@@ -1,19 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import '../stylesheets/layout/_detail.scss';
 
 class CharacterDetail extends React.Component{
  render(){
   
    return(
-    <>
-      <div className="" > 
-         <Link to='/'>
-           <button className="btn-back"> Volver </button>
-         </Link>
-      </div>
+    <div className="card">
       <li className="details-wrapper">
          <img src={this.props.image} alt="Foto del personaje"></img>
-         <div>
+         <div className="details">
            <h3>Nombre:{this.props.name}</h3>
            <div className="characteristics">
              <h4>Especie:{this.props.species}</h4>
@@ -23,7 +19,12 @@ class CharacterDetail extends React.Component{
            </div>
          </div>
        </li>
-    </>
+       <div className="card-btn" > 
+         <Link to='/'>
+           <button className="btn-back"> volver </button>
+         </Link>
+      </div>
+    </div>
    )
   }
 }

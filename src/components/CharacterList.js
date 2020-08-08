@@ -1,5 +1,6 @@
 import React from 'react';
 import Character from './Character';
+import '../stylesheets/layout/_charlist.scss';
 
 // Vamos a crear el listado de todos los personajes qeu nos llegan desde la Api. 
 class CharacterList extends React.Component {
@@ -21,7 +22,9 @@ class CharacterList extends React.Component {
     });
  
    return(
-     <ul className="characterList">{characters}</ul>
+     <div className="list-wrapper">
+       <ul className="characterList">{characters}</ul>
+     </div>
     );
   }
 }

@@ -1,12 +1,15 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import '../App.css';
+import '../stylesheets/layout/App.scss';
+import Landing from './Landing';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import Filter from './Filter';
-//api desde donde conseguimos la lista de personajes
+
+//Api limpia desde donde conseguimos la lista de personajes.
 
 const listCharacters = 'https://rickandmortyapi.com/api/character/?';
+
 class App extends React.Component{
   constructor (props){
    super(props);
@@ -20,7 +23,7 @@ class App extends React.Component{
     this.renderCharacterDetail =this.renderCharacterDetail.bind(this);
   }
   
-   //hay que hacer el fetch.
+   //El fetch.
   FetchCharacter(){
     
     fetch(listCharacters + 'name=' + this.state.FilterText)
@@ -30,7 +33,7 @@ class App extends React.Component{
       });
   }      
 
-   //tenemos que cambiar el estado con los handlers que nos llegan desde el filter.
+   //Tenemos que cambiar el estado por los handlers que nos llegan desde el filter.
    handleFilterText(text){
     console.log(text);
     this.setState({FilterText:text});
@@ -46,10 +49,10 @@ class App extends React.Component{
        return item.id === parseInt(key);
       });
     if(charSelected === undefined){
-      //si no está, hago un fetch de getcharacter si está, lo pinto si no está le pongo el <p> con la frase.
-      return <p className ="error">Este personaje es de una realidad paralela encriptada</p>
+      //Si no está le pongo el <p> con la frase.
+      return <p className ="error">Este personaje está en busca y captura, si lo encuentras, avisa a La Ciudadela... ellos sabrán qué hacer...</p>
     }else {//TODO
-      //si está pinto el objeto 
+      //Si está pinto el objeto 
       return (<CharacterDetail image="" name="" species="" origin="" episode="" status=""></CharacterDetail>)
     }
 
@@ -57,10 +60,13 @@ class App extends React.Component{
   render(){
    return (
       <div className="App">
+        <Switch>
+          <Route exact path="/" component={Landing} />
+        </Switch>  
         <Filter changeText={this.handleFilterText}></Filter>
         <CharacterList characterArray ={this.state.characters}></CharacterList>
         <Switch>
-         <Route exact path='/character/:id' render={this.renderCharacterDetail}/>
+          <Route exact path='/character/:id' render={this.renderCharacterDetail}/>
         </Switch>
       </div>
     );
@@ -70,4 +76,3 @@ class App extends React.Component{
 export default App;
 
 
-//TODO hacer un localStore para dejar guardada la búsqueda.

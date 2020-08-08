@@ -1,4 +1,5 @@
 import React from 'react';
+import '../stylesheets/layout/_filter.scss';
 
 //TODO hay que tener en cuenta si las letras están en mayúscula / minúscula para la búsqueda.
 
@@ -20,7 +21,7 @@ class Filter extends React.Component{
 
   render(){
     return(
-      <form onSubmit= {this.handleSubmit}>
+      <form className="form-wrapper" onSubmit= {this.handleSubmit}>
         <label className='label' htmlFor='name'>
           Busca un personaje:
         </label>
