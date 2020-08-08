@@ -15,8 +15,7 @@ class App extends React.Component{
    super(props);
    this.state ={
    //Aquí colocamos todo lo que queremos guardar vacío.
-      characters: [],
-      FilterText: ''
+      characters: []
     } 
     //bindeamos los handlers que se van creando.
     this.handleFilterText = this.handleFilterText.bind(this);
@@ -24,9 +23,8 @@ class App extends React.Component{
   }
   
    //El fetch.
-  FetchCharacter(){
-    
-    fetch(listCharacters + 'name=' + this.state.FilterText)
+  FetchCharacter(filter){
+    fetch(listCharacters + 'name=' + filter)
       .then((response) => response.json())
       .then(data =>{
         this.setState({characters : data.results});
@@ -35,9 +33,8 @@ class App extends React.Component{
 
    //Tenemos que cambiar el estado por los handlers que nos llegan desde el filter.
    handleFilterText(text){
-    console.log(text);
-    this.setState({FilterText:text});
-    this.FetchCharacter();
+    console.log("textWritten: " + text);
+    this.FetchCharacter(text);
   }
 
 
@@ -47,42 +44,37 @@ class App extends React.Component{
     console.log("key" + key);
     let charSelected = this.state.characters.find((item) => {
        return item.id === parseInt(key);
-      });
-    if(charSelected === undefined){
-      //Si no está le pongo el <p> con la frase.
-      return <p className ="error">Este personaje está en busca y captura, si lo encuentras, avisa a La Ciudadela... ellos sabrán qué hacer...</p>
-    }else {//TODO
-      //Si está pinto el objeto 
-      return (<CharacterDetail image="" name="" species="" origin="" episode="" status=""></CharacterDetail>)
-    }
-
+       });
+        if(charSelected === undefined){
+         //Si no está le pongo el <p> con la frase.
+         return (<> </>)
+        }else {
+       //Si está pinto el objeto 
+          return (
+           <CharacterDetail 
+             image= {charSelected.image} 
+             name= {charSelected.name}
+             species= {charSelected.species} 
+             origin= {charSelected.origin.name} 
+             episode= {charSelected.episode.length} 
+             status= {charSelected.status}>
+            </CharacterDetail>
+          )
+        }
   }
   render(){
    return (
       <div className="App">
-        {/* <Switch>
-          <Route exact path="/" component={Landing} />
-        </Switch>  
-        <Filter changeText={this.handleFilterText}></Filter>
-        <CharacterList characterArray ={this.state.characters}></CharacterList>
         <Switch>
-          <Route exact path='/character/:id' render={this.renderCharacterDetail}/>
-        </Switch> */}
-                <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/character">
-          <Filter changeText={this.handleFilterText}></Filter>
-        <CharacterList characterArray ={this.state.characters}></CharacterList>
-        <Switch>
-          <Route exact path='/character/:id' render={this.renderCharacterDetail}/>
-        </Switch>
+           <Filter changeText={this.handleFilterText}></Filter>
+           <CharacterList characterArray ={this.state.characters}></CharacterList>
+           <Switch>
+             <Route exact path='/character/:id' render={this.renderCharacterDetail}/>
+           </Switch>
           </Route>
         </Switch>  
-        {/* <Filter changeText={this.handleFilterText}></Filter>
-        <CharacterList characterArray ={this.state.characters}></CharacterList>
-        <Switch>
-          <Route exact path='/character/:id' render={this.renderCharacterDetail}/>
-        </Switch> */}
       </div>
     );
   }

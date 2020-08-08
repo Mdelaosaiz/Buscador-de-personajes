@@ -9,7 +9,11 @@ class CharacterList extends React.Component {
 
  render(){
    console.log(this.props.characterArray);
-   let characters = this.props.characterArray.map( item => {
+   let characters = this.props.characterArray.sort(function(a, b){
+    if(a.name < b.name) { return -1; }
+    if(a.name > b.name) { return 1; }
+    return 0;
+    }).map( item => {
       return (
        <Character
          key= {item.id}
