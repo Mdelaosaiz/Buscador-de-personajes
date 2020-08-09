@@ -4,7 +4,10 @@ import '../stylesheets/layout/_detail.scss';
 
 class CharacterDetail extends React.Component{
  render(){
-  
+   let status =<i class="far fa-smile"></i>;
+  if( this.props.status !== "Alive"){
+      status = <i class="fas fa-skull-crossbones"></i>;
+  }
    return(
      <div className="character-detail">
        <div className="card">
@@ -21,7 +24,7 @@ class CharacterDetail extends React.Component{
                <h4>Especie:{this.props.species}</h4>
                <h4>Planeta de origen: {this.props.origin}</h4>
                <h4>Episodios en los que aparece: {this.props.episode}</h4>
-               <h4>Estado: {this.props.status}</h4>
+               <h4>Estado: {status}</h4>
              </section>
            </div>
          </li>

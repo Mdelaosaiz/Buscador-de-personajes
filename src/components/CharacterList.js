@@ -4,27 +4,40 @@ import '../stylesheets/layout/_charlist.scss';
 
 // Vamos a crear el listado de todos los personajes qeu nos llegan desde la Api. 
 class CharacterList extends React.Component {
+
+  renderContent(){
+    console.log("render content " + this.props.characterArray);
+    if(this.props.characterArray == null || this.props.characterArray.length === 0){
+      return <p className="errorP"> O este personaje no existe... o La Ciudadela lo ha encontrado antes... </p>
+      }else{
+        let characters = this.props.characterArray.sort(function(a, b){
+          if(a.name < b.name) { return -1; }
+          if(a.name > b.name) { return 1; }
+          return 0;
+         }).map( item => {
+          return (
+            <Character
+              key= {item.id}
+              id= {item.id}
+              image={item.image}
+              name={item.name}
+              species={item.species}
+            />
+           );
+         });
+         return <ul className="characterList">{characters}</ul>
+       }
+  }
+
  render(){
-   console.log(this.props.characterArray);
-   let characters = this.props.characterArray.sort(function(a, b){
-    if(a.name < b.name) { return -1; }
-    if(a.name > b.name) { return 1; }
-    return 0;
-    }).map( item => {
-      return (
-       <Character
-         key= {item.id}
-         id= {item.id}
-         image={item.image}
-         name={item.name}
-         species={item.species}
-       />
-      );
-    });
- 
+    console.log(this.props.characterArray);
+   //si el characterArray.length === null me devuelve el html <p> si es !==null me devuelve un <ul> con :
+
+     
+    
    return(
      <div className="list-wrapper">
-       <ul className="characterList">{characters}</ul>
+       {this.renderContent()}
      </div>
     );
   }

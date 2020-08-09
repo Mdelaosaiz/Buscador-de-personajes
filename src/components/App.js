@@ -34,7 +34,6 @@ class App extends React.Component{
 
    //Tenemos que cambiar el estado por los handlers que nos llegan desde el filter.
    handleFilterText(text){
-    console.log("textWritten: " + text);
     this.FetchCharacter(text);
   }
 
@@ -48,8 +47,7 @@ class App extends React.Component{
        return item.id === parseInt(key);
        });
         if(charSelected === undefined){
-         //Si no está le pongo el <p> con la frase. TODO
-         return (<> </>)
+          return (<> </>)
         }else {
        //Si está pinto el objeto 
           return (
