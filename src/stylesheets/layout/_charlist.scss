@@ -1,21 +1,36 @@
 .list-wrapper{
   height: 50vh;
-  width: 100%;
-  padding-left:50px;
+  width: 95%;
+  padding-left:10px;
   display:flex;
   flex-direction: column;
-  
+ 
+  @media all and(min-width:768px) { 
+    padding-left:50px;
+  }
 }
 .errorP{
-  font-size: 30px;
+  margin:10px;
+  font-size: 20px;
   color:white;
-}
+
+  @media all and(min-width:768px) {  
+   font-size: 30px;
+  }
+} 
 .characterList {
   margin:20px;
   padding:30px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;  
+  grid-template-columns: 1fr 1fr;  
 
+  @media all and (min-width: 768px){
+    grid-template-columns: 1fr 1fr 1fr; 
+  }
+  
+  @media all and(min-width:1200px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
   ul a{
    width: 200px;
   }

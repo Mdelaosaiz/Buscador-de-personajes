@@ -20,8 +20,8 @@
     z-index: 1;
     position: fixed;
     bottom:42vh;
-    left:22vh;
-    width: 110px;
+    left:24vh;
+    width: 90px;
     height: 30px;
     text-align: center;
     border-radius: 21px;
@@ -32,14 +32,18 @@
     color:rgb(4, 8, 255);
       
     @media all and(min-width:768px) {
-      left:34vh;
+      bottom: 40%;
+      left:45%;
+      font-size: 18px;
+      width: 110px;
     }
     
     @media all and(min-width:1200px) {
-      width: 120px;
+      width: 110px;
       height: 40px;
-      bottom: 39vh;
-      left: 55vh;
+      bottom: 36%;
+      left: 47%;
+      font-size: 20px;
     }
     
     .landing-button:hover {
