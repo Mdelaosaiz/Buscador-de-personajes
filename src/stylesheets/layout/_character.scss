@@ -10,7 +10,7 @@
   border-radius: 10px;
   box-shadow: 0 5px 4px 4px black;
   list-style-type: none;
-  
+    
   img{
     height: 150px;
     width: 150px;
@@ -29,4 +29,10 @@
     border:2px solid black;
     color:rgb(71, 5, 158);
   }
+}
+.character:active {
+  transform: translateY(4px);
+  }
+.character:hover {
+  box-shadow: green 0px 0px 13px 7px;
 }

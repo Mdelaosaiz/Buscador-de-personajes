@@ -13,7 +13,7 @@ class Landing extends React.Component {
         />
          <Link to='/character' title='Comenzar la búsqueda'> 
              <button type="button"className='landing-button' >
-                Click Me!
+                dale 
      </button></Link>
       </div>
     );
