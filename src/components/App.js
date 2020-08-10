@@ -41,7 +41,6 @@ class App extends React.Component{
   renderCharacterDetail (props){
     // busco si el id está en el objeto del estado.
     let key = props.match.params.id;
-    console.log("key" + key);
     let charSelected = this.state.characters.find(
       (item) => {
        return item.id === parseInt(key);

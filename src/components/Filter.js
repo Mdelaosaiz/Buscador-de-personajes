@@ -1,8 +1,6 @@
 import React from 'react';
 import '../stylesheets/layout/_filter.scss';
 
-//TODO hay que tener en cuenta si las letras están en mayúscula / minúscula para la búsqueda.
-
 class Filter extends React.Component{
   //tenemos que crear el constructor donde va el handler del onchage y bindearlo.
   constructor(props) {

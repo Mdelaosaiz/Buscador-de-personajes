@@ -14,19 +14,6 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    animation-name: increaseing;
-    animation-duration: 5000ms;
-    animation-iteration-count:1;
-    animation-timing-function: linear; 
-  }
-
-  @keyframes increaseing {
-    from {
-      transform: scale(0);
-    }
-    to {
-      transform: scale(1.5);
-    }
   }
 
   .landing-button {
@@ -45,7 +32,7 @@
     color:rgb(4, 8, 255);
     transform: rotate(70%, -70%);
     animation-name: increaseing;
-    animation-duration: 3000ms;
+    animation-duration: 1000ms;
     animation-iteration-count:1;
     animation-timing-function: linear; 
   

@@ -6,7 +6,7 @@ import '../stylesheets/layout/_charlist.scss';
 class CharacterList extends React.Component {
 
   renderContent(){
-    console.log("render content " + this.props.characterArray);
+    
     if(this.props.characterArray == null || this.props.characterArray.length === 0){
       return <p className="errorP"> O este personaje no existe... o La Ciudadela lo ha encontrado antes... </p>
       }else{
@@ -30,12 +30,7 @@ class CharacterList extends React.Component {
   }
 
  render(){
-    console.log(this.props.characterArray);
-   //si el characterArray.length === null me devuelve el html <p> si es !==null me devuelve un <ul> con :
-
-     
-    
-   return(
+    return(
      <div className="list-wrapper">
        {this.renderContent()}
      </div>
