@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "./static/css/main.b6378b9e.chunk.css",
+    "main.js": "./static/js/main.de9fe072.chunk.js",
+    "main.js.map": "./static/js/main.de9fe072.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.4c2c5298.js",
+    "runtime-main.js.map": "./static/js/runtime-main.4c2c5298.js.map",
+    "static/js/2.61500190.chunk.js": "./static/js/2.61500190.chunk.js",
+    "static/js/2.61500190.chunk.js.map": "./static/js/2.61500190.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.526d6d2947f7982b1bb0a2f43bee904f.js": "./precache-manifest.526d6d2947f7982b1bb0a2f43bee904f.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.b6378b9e.chunk.css.map": "./static/css/main.b6378b9e.chunk.css.map",
+    "static/js/2.61500190.chunk.js.LICENSE.txt": "./static/js/2.61500190.chunk.js.LICENSE.txt",
+    "static/media/_landing.scss": "./static/media/RickyMorty.e83233cd.jpg",
+    "static/media/Sanchez.png": "./static/media/Sanchez.c5b9c438.png",
+    "static/media/logo.png": "./static/media/logo.75509f2e.png",
+    "static/media/morty.png": "./static/media/morty.f31bf933.png",
+    "static/media/App.scss": "./static/media/nebulosa3.74962e68.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4c2c5298.js",
+    "static/js/2.61500190.chunk.js",
+    "static/css/main.b6378b9e.chunk.css",
+    "static/js/main.de9fe072.chunk.js"
+  ]
+}
