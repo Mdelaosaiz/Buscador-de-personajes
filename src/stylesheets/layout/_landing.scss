@@ -14,8 +14,21 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    
+    animation-name: increaseing;
+    animation-duration: 5000ms;
+    animation-iteration-count:1;
+    animation-timing-function: linear; 
   }
+
+  @keyframes increaseing {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1.5);
+    }
+  }
+
   .landing-button {
     z-index: 1;
     position: fixed;
@@ -31,7 +44,11 @@
     font-family: 'Josefin Sans', sans-serif;
     color:rgb(4, 8, 255);
     transform: rotate(70%, -70%);
-      
+    animation-name: increaseing;
+    animation-duration: 3000ms;
+    animation-iteration-count:1;
+    animation-timing-function: linear; 
+  
     @media all and(min-width:768px) {
       bottom: 40%;
       left:45%;
@@ -47,10 +64,20 @@
       font-size: 20px;
     }
   }  
+  
+  @keyframes increaseing {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
   .landing-button:hover {
-    box-shadow: black 0px 0px 3px 2px;
+    box-shadow: rgb(127, 218, 7) 0px 0px 7px 7px;
     animation-name: spin;
-    animation-duration: 5000ms;
+    animation-duration: 2500ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear; 
     cursor: pointer;      
