@@ -30,6 +30,7 @@
     background-color: rgb(131, 225, 241);
     font-family: 'Josefin Sans', sans-serif;
     color:rgb(4, 8, 255);
+    transform: rotate(70%, -70%);
       
     @media all and(min-width:768px) {
       bottom: 40%;
@@ -45,12 +46,23 @@
       left: 47%;
       font-size: 20px;
     }
-    
-    .landing-button:hover {
-      cursor: pointer;      
-      
+  }  
+  .landing-button:hover {
+    box-shadow: black 0px 0px 3px 2px;
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+    cursor: pointer;      
+  }
+
+  @keyframes spin {
+    from {
+      transform:rotate(0deg);
     }
-    
+    to {
+      transform:rotate(360deg);
+    }
   }
 }
 
