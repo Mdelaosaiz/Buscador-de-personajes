@@ -6,8 +6,8 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  position: sticky;
-  bottom: 40vh;
+  position: fixed;
+  top: 3vh;
   left: 20vh;
   
   @media all and(min-width:768px) {
